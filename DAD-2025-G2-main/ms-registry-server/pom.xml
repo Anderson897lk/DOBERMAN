@@ -12,8 +12,6 @@
 	<groupId>com.example</groupId>
 	<artifactId>ms-registry-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ms-registry-server</name>
-	<description>ms-registry-server</description>
 
 	<properties>
 		<java.version>17</java.version>
