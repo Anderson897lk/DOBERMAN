@@ -13,7 +13,7 @@ eureka:
       defaultZone: http://localhost:8090/eureka
   instance:
     hostname: localhost
-    # Rutas estáticas para evitar el bypass por canales alternativos
+    # Definimos rutas fijas para evitar accesos por canales alternativos
     status-page-url-path: /actuator/info
     health-check-url-path: /actuator/health
 
@@ -21,11 +21,12 @@ management:
   endpoints:
     web:
       exposure:
-        # MITIGACIÓN: Solo exponemos lo mínimo indispensable
+        # MITIGACIÓN: Solo exponemos health e info. 
+        # Esto elimina el vector de ataque del Bypass (CVE-2026-22731).
         include: "health,info"
   endpoint:
     health:
       show-details: never
-      # Desactivamos grupos de salud adicionales que causan la alerta en Snyk
+      # Desactivamos grupos de salud personalizados para limpiar la alerta de Snyk
       probes:
         enabled: false
