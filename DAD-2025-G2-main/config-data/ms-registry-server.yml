@@ -4,19 +4,16 @@ server:
 spring:
   application:
     name: ms-registry-server
-  # Forzamos la desactivación de perfiles que puedan exponer rutas vulnerables
-  profiles:
-    active: default
 
 eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://localhost:8090/eureka
   instance:
     hostname: localhost
-    # Mitigación: Definir rutas explícitas para evitar el bypass por rutas alternativas
+    # Rutas estáticas para evitar el bypass por canales alternativos
     status-page-url-path: /actuator/info
     health-check-url-path: /actuator/health
 
@@ -24,13 +21,11 @@ management:
   endpoints:
     web:
       exposure:
-        # CORRECCIÓN CRÍTICA: Solo exponemos lo mínimo necesario. 
-        # Esto elimina la posibilidad de explotación del bypass.
+        # MITIGACIÓN: Solo exponemos lo mínimo indispensable
         include: "health,info"
   endpoint:
     health:
-      # No mostrar detalles previene la filtración de información sensible (CVSS 9.2)
       show-details: never
-      # Desactivamos grupos personalizados que Snyk marca como vulnerables
+      # Desactivamos grupos de salud adicionales que causan la alerta en Snyk
       probes:
         enabled: false
