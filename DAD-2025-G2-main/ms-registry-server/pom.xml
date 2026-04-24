@@ -6,8 +6,9 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.13</version>
-		<relativePath/> </parent>
+		<version>3.4.13</version> 
+		<relativePath/> 
+	</parent>
 
 	<groupId>com.example</groupId>
 	<artifactId>ms-registry-server</artifactId>
