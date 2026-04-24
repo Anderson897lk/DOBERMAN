@@ -6,7 +6,8 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.4.13</version> <relativePath/> </parent>
+        <version>3.4.13</version> <relativePath/> 
+    </parent>
 
     <groupId>com.example</groupId>
     <artifactId>ms-gateway-service</artifactId>
@@ -24,11 +25,13 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
+        
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
-            <version>4.3.1</version>
+            <version>4.2.5</version> 
         </dependency>
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
@@ -74,5 +77,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
